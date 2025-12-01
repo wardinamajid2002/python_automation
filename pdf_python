@@ -1,0 +1,25 @@
+#type python in commad line to start code in python
+
+>>> from pypdf import PdfReader
+>>>
+>>>
+>>> pdfFileObj = open('TheCrucible.pdf', 'rb')
+>>> pdfReader = PdfReader(pdfFileObj)
+Ignoring wrong pointing object 8 0 (offset 0)
+Ignoring wrong pointing object 25 0 (offset 0)
+>>>
+>>> num_pages = len(pdfReader.pages)
+>>> print(f"number of pages: {num_pages}")
+number of pages: 154
+>>> page_getter = pdfReader.getPage(6)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'PdfReader' object has no attribute 'getPage'. Did you mean: 'get_page'?
+>>> page_getter = pdfReader.get_page(6)
+>>> page_getter.extractText()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'PageObject' object has no attribute 'extractText'. Did you mean: 'extract_text'?
+>>> page_getter.extract_text()
+'6 The Crucible \n \nand they had to be to survive the life they  had chosen or been born into in this \ncountry. \nThe proof of their belief’s value to them may be taken from the opposite \ncharacter of the first Jamestown settlement, farther south, in Virginia. The \nEnglishmen who landed there were motivated mainly by a hunt for profit. They \nhad thought to pick off the wealth of the new country and then return rich to \nEng-land. They were a band of indivi dualists, and a much more ingratiating \ngroup than the Massachusetts men. But Vi rginia destroyed them. Massachusetts \ntried to kill off the Puritans, but they combined; they set up a communal society \nwhich, in the beginning, was little more th an an armed camp with an auto-cratic \nand very devoted leadership. It was, however, an autoc-racy by consent, for they \nwere united from top to bottom by a commonly held ideology whose \nperpetuation was the reason and justifica tion for all their sufferings. So their \nself-denial, their purposefulness, their susp icion of all vain pursuits, their hard-\nhanded justice, were altogether perfect instruments for the con-quest of this \nspace so antagonistic to man. \nBut the people of Salem in 1692 were not quite the dedicated folk that arrived \non the Mayflower. A vast differentiation had taken place, and in their own time \na revolution had unseated the royal government and substituted a junta which \nwas at this moment in power. The times, to their eyes, must have been out of \njoint, and to the common folk must ha ve seemed as insoluble and complicated \nas do ours today. It is not hard to see how easily many could have been led to \nbelieve that the time of confusion ha d been brought upon them by deep and \ndarkling forces. No hint of such speculation appears on the court record, but \nsocial disorder in any age breeds such  m y s t i c a l  s u s p i c i o n s ,  a n d  w h e n ,  a s  i n  \nSalem, wonders are brought forth from below the social surface, it is too much \nto expect people to hold back very long from laying on the victims with all the \nforce of their frustrations. \nThe Salem tragedy, which is about to begin in these pages, '
+>>>
